@@ -28,8 +28,14 @@ For a desktop MCP client, configure command `node` with the absolute path to
 `dist/index.js` as its argument. No environment file or database credentials
 are needed. `SWITCHWIZE_API_URL` is an optional API-origin override for developers.
 
-The npm package `switchwize-mcp` is **not yet published** as of September 4,
-2026. Do not use an npx installation command until registry publication is verified.
+## Run from npm
+
+```sh
+npx -y switchwize-mcp@0.1.0
+```
+
+For a desktop MCP client, configure command `npx` with arguments
+`["-y", "switchwize-mcp@0.1.0"]`. No API key is required.
 
 ## Available tools
 

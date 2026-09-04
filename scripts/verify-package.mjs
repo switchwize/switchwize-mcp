@@ -33,7 +33,7 @@ function main() {
   if (packs.length !== 1) throw new Error('Expected one release package')
   validatePackageFiles(packs[0].files)
   const manifest = JSON.parse(readFileSync(resolve(cwd, 'package.json'), 'utf8'))
-  if (manifest.name !== 'switchwize-mcp' || manifest.bin?.['switchwize-mcp'] !== './dist/index.js') {
+  if (manifest.name !== 'switchwize-mcp' || manifest.bin?.['switchwize-mcp'] !== 'dist/index.js') {
     throw new Error('Unexpected package identity or executable')
   }
   const executable = readFileSync(resolve(cwd, 'dist/index.js'), 'utf8')

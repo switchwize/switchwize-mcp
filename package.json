@@ -4,7 +4,7 @@
   "description": "Thin stdio MCP proxy for SwitchWize's free public rate-data API — no account, API key, or repo checkout required.",
   "type": "module",
   "bin": {
-    "switchwize-mcp": "./dist/index.js"
+    "switchwize-mcp": "dist/index.js"
   },
   "main": "./dist/index.js",
   "files": [
@@ -45,6 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/switchwize/switchwize-mcp.git"
+    "url": "git+https://github.com/switchwize/switchwize-mcp.git"
   }
 }
