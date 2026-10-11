@@ -1,7 +1,7 @@
 # SwitchWize MCP client
 
-Read-only MCP tools for U.S. deposit and mortgage rate observations, savings
-comparisons, index datasets, and credit-card Reality Scores.
+Read-only MCP tools for U.S. rates, savings comparisons, financial indexes,
+card offers and changes, rewards, CD rollover rules, and downgrade paths.
 
 ## Connect now
 
@@ -31,11 +31,15 @@ are needed. `SWITCHWIZE_API_URL` is an optional API-origin override for develope
 ## Run from npm
 
 ```sh
-npx -y switchwize-mcp@0.1.0
+npx -y switchwize-mcp@0.3.0
 ```
 
 For a desktop MCP client, configure command `npx` with arguments
-`["-y", "switchwize-mcp@0.1.0"]`. No API key is required.
+`["-y", "switchwize-mcp@0.3.0"]`. No API key is required.
+
+The npm registry reports 0.3.0 as latest as of October 10, 2026. This repository's
+source manifest retains its historical version; this documentation update does
+not publish a package or certify parity with the latest published artifact.
 
 ## Available tools
 
@@ -47,6 +51,18 @@ For a desktop MCP client, configure command `npx` with arguments
 - `get_index_dataset`
 - `get_bank_gap_index`
 - `get_reality_score`
+- `get_card_offers`
+- `get_transfer_bonuses`
+- `get_card_changes`
+- `get_reward_valuations`
+- `best_move_this_week`
+- `get_cd_rollover_rules`
+- `get_card_downgrade_path`
+- `get_fed_hike_pass_through`
+
+The hosted server currently discovers 16 tools, three prompts, and four resources.
+The source-built stdio proxy below discovers and forwards tools through the
+public HTTP API; do not assume it forwards hosted prompts and resources.
 
 The client discovers the tool list from `/api/public/tools` and forwards calls
 to `/api/public/tools/{tool}`. It does not initiate financial transactions or
@@ -58,6 +74,11 @@ the hosted API; do not include account numbers or other sensitive identifiers.
 Observations may be aggregator-sourced and may be aging. Preserve each response's
 source dates and freshness labels. Monthly index data is not a current offer.
 Confirm product terms directly with the provider before making a decision.
+
+Savings-gap figures are hypothetical estimates. The comparison benchmark is
+the average of the top three tracked savings rates, not an average across every
+tracked bank. Card Reality Scores model a consumer segment's assumptions and
+may carry stale terms; they are not personalized advice or guaranteed benefits.
 
 Attribute data as **SwitchWize (switchwize.com)**. The MIT license covers this
 client software, not upstream datasets, third-party materials, or trademarks.
