@@ -26,7 +26,7 @@ npm start
 
 For a desktop MCP client, configure command `node` with the absolute path to
 `dist/index.js` as its argument. No environment file or database credentials
-are needed. `SWITCHWIZE_API_URL` is an optional API-origin override for developers.
+are needed. `SWITCHWIZE_MCP_URL` is an optional full MCP endpoint override for developers.
 
 ## Run from npm
 
@@ -37,9 +37,8 @@ npx -y switchwize-mcp@0.3.0
 For a desktop MCP client, configure command `npx` with arguments
 `["-y", "switchwize-mcp@0.3.0"]`. No API key is required.
 
-The npm registry reports 0.3.0 as latest as of October 10, 2026. This repository's
-source manifest retains its historical version; this documentation update does
-not publish a package or certify parity with the latest published artifact.
+The source bridge and package manifest now use 0.3.0, matching the published npm
+bridge. Building this repository does not republish the existing npm version.
 
 ## Available tools
 
@@ -61,13 +60,21 @@ not publish a package or certify parity with the latest published artifact.
 - `get_fed_hike_pass_through`
 
 The hosted server currently discovers 16 tools, three prompts, and four resources.
-The source-built stdio proxy below discovers and forwards tools through the
-public HTTP API; do not assume it forwards hosted prompts and resources.
+The source-built stdio bridge forwards the hosted tool schemas and annotations,
+prompts, resources, structured results and tool error status.
 
-The client discovers the tool list from `/api/public/tools` and forwards calls
-to `/api/public/tools/{tool}`. It does not initiate financial transactions or
+The client connects to `/api/mcp` using Streamable HTTP and exposes that catalog
+over stdio. It does not initiate financial transactions or
 request bank credentials. Balance inputs supplied to tools are transmitted to
 the hosted API; do not include account numbers or other sensitive identifiers.
+
+## Validate a source checkout
+
+`npm run verify:package` checks the build and package contents without publishing.
+`npm run verify:live` compares the source bridge's tools, prompts and resources
+with the public hosted service and performs a hypothetical Bank Gap call. It
+requires network access and contributes internal acceptance traffic; it does
+not establish independent user adoption or verify every upstream data source.
 
 ## Data boundaries
 
