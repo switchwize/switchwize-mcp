@@ -1,7 +1,7 @@
 {
   "name": "switchwize-mcp",
-  "version": "0.1.0",
-  "description": "Thin stdio MCP proxy for SwitchWize's free public rate-data API — no account, API key, or repo checkout required.",
+  "version": "0.3.0",
+  "description": "Credentials-free stdio bridge to SwitchWize public read-only MCP tools, prompts and resources.",
   "type": "module",
   "bin": {
     "switchwize-mcp": "dist/index.js"
@@ -16,17 +16,18 @@
     "verify:package": "npm run build && node scripts/verify-package.mjs",
     "prepublishOnly": "npm run verify:package",
     "start": "node dist/index.js",
-    "dev": "node --experimental-strip-types src/index.ts"
+    "dev": "node --experimental-strip-types src/index.ts",
+    "verify:live": "npm run build && node scripts/verify-live.mjs"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0"
+    "@modelcontextprotocol/sdk": "^1.32.1"
   },
   "devDependencies": {
     "typescript": "^5.6.0",
     "@types/node": "^22.0.0"
   },
   "engines": {
-    "node": ">=18.17"
+    "node": ">=20"
   },
   "keywords": [
     "mcp",
@@ -35,7 +36,6 @@
     "finance",
     "rates",
     "savings",
-    "mortgage",
     "cd-rates"
   ],
   "homepage": "https://www.switchwize.com/developers",
@@ -46,5 +46,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/switchwize/switchwize-mcp.git"
-  }
+  },
+  "mcpName": "io.github.switchwize/switchwize-mcp"
 }
