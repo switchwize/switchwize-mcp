@@ -1,0 +1,185 @@
+{
+  "checkedAt": "2026-10-28T01:51:33.605Z",
+  "cliVersion": "0.66.0",
+  "extensionVersion": "0.3.0",
+  "endpoint": "https://www.switchwize.com/api/mcp",
+  "validationMethod": "Gemini CLI bundled McpClient and DiscoveredMCPTool.build/execute; no model call",
+  "traffic": "Internal acceptance probes with hypothetical inputs; not consumer adoption",
+  "tools": [
+    {
+      "name": "get_top_rates",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 177,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_top_hysa_rates",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 162,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_bank_gap",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 706,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "compare_switch_savings",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 82,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_rate_freshness",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 184,
+      "dataStatuses": []
+    },
+    {
+      "name": "get_index_dataset",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 93,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_bank_gap_index",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 74,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_reality_score",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 75,
+      "dataStatuses": [
+        "freshnessStatus:stale"
+      ]
+    },
+    {
+      "name": "get_card_offers",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 484,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_transfer_bonuses",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 91,
+      "dataStatuses": [
+        "freshnessStatus:unavailable"
+      ]
+    },
+    {
+      "name": "get_card_changes",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 128,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_reward_valuations",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 104,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "best_move_this_week",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 406,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_cd_rollover_rules",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 159,
+      "dataStatuses": [
+        "freshnessStatus:aging"
+      ]
+    },
+    {
+      "name": "get_card_downgrade_path",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 101,
+      "dataStatuses": [
+        "freshnessStatus:aging"
+      ]
+    },
+    {
+      "name": "get_fed_hike_pass_through",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 159,
+      "dataStatuses": [
+        "freshnessStatus:aging"
+      ]
+    }
+  ],
+  "extraDepositCategories": [
+    {
+      "category": "cds",
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 79,
+      "dataStatuses": [
+        "freshnessStatus:stale"
+      ]
+    },
+    {
+      "category": "money-market",
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 91,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "category": "checking",
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 134,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    }
+  ],
+  "upstreamSchemaNotes": [
+    "Hosted get_top_rates category description still mentions mortgage. The extension context restricts requests to savings, money-market, cds, and checking; this release does not change the hosted schema."
+  ],
+  "failures": [],
+  "discoveredTools": 16,
+  "invalidInputRejected": true,
+  "passed": true
+}

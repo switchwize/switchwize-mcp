@@ -12,6 +12,31 @@ For clients supporting Streamable HTTP, use the hosted endpoint:
 No SwitchWize account or API key is required. The API is rate-limited.
 Documentation: [SwitchWize Developers](https://www.switchwize.com/developers).
 
+## Gemini CLI extension
+
+Install from the public repository:
+
+```sh
+gemini extensions install https://github.com/switchwize/switchwize-mcp
+```
+
+Restart Gemini CLI, then use `/mcp list` to confirm that `switchwize` is connected
+and exposes all 16 tools. The extension uses Gemini CLI's native Streamable HTTP
+transport; no separate local MCP process, SwitchWize account, or API key is needed.
+Gemini CLI itself requires its own supported authentication and runtime setup.
+
+Try: "Use SwitchWize to compare current U.S. high-yield savings observations.
+Include source URLs and as-of dates, and flag stale or unavailable data."
+
+The extension covers U.S. deposit and card research, excluding mortgages.
+Review `GEMINI.md` for source, freshness, and privacy guidance. Installing this
+extension enables your Gemini CLI to use the tools; it does not enable them for
+other Gemini users or designate SwitchWize as a Google Search data source.
+
+Google's extension gallery discovers public repositories with a root
+`gemini-extension.json` and the `gemini-cli-extension` GitHub topic. Gallery
+discovery and installation are separate from consumer usage.
+
 ## Run the stdio client from source
 
 Use a supported Node.js LTS release and npm:
@@ -75,6 +100,19 @@ the hosted API; do not include account numbers or other sensitive identifiers.
 with the public hosted service and performs a hypothetical Bank Gap call. It
 requires network access and contributes internal acceptance traffic; it does
 not establish independent user adoption or verify every upstream data source.
+
+`npm run verify:gemini -- <report.json>` verifies all 16 tools using Gemini CLI
+0.66.0's own MCP discovery, input-schema validation, and invocation code. Set
+`GEMINI_CLI_PACKAGE_DIR` to an installed `@google/gemini-cli@0.66.0` package
+directory. Optionally set `SWITCHWIZE_GEMINI_MANIFEST` to the manifest from an
+installed extension to validate that exact configuration. Keep validation in a
+separate `GEMINI_CLI_HOME` so it does not alter your normal Gemini settings.
+
+This check makes live read-only calls with hypothetical inputs, labels its
+requests as internal probes, records freshness states without treating stale
+or unavailable data as current, and checks the other three deposit categories.
+It does not make an LLM request or establish consumer adoption. See the dated
+[Gemini release validation](docs/gemini-release-validation-2026-10-27.md).
 
 ## Data boundaries
 
