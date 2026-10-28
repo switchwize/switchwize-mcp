@@ -1,0 +1,12 @@
+{
+  "name": "switchwize",
+  "version": "0.3.0",
+  "description": "Read-only public U.S. deposit rates, savings-gap comparisons, financial indexes, and credit-card research with source dates and freshness labels.",
+  "mcpServers": {
+    "switchwize": {
+      "httpUrl": "https://www.switchwize.com/api/mcp",
+      "timeout": 60000
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
