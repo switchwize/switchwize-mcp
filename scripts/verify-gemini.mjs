@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { randomUUID } from 'node:crypto'
 import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join, resolve } from 'node:path'
+import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 // Use the pinned CLI's actual MCP discovery, schema validation, and invocation
@@ -30,6 +30,8 @@ const samples = {
   get_top_hysa_rates: { limit: 3 },
   get_bank_gap: { bank: 'Chase', balance: 25000 },
   compare_switch_savings: { currentApy: 0.5, balance: 25000 },
+  compare_accounts: { category: 'savings', accounts: ['ally', 'capital one'], balance: 25000 },
+  business_card_cost: { monthlySpend: 8000, monthlyBonusCategorySpend: 2000 },
   get_rate_freshness: { category: 'savings' },
   get_index_dataset: { indexId: 'bank-gap-index', limit: 3 },
   get_bank_gap_index: {},
@@ -95,9 +97,7 @@ try {
     }
   }
   const rates = tools.find(tool => tool.serverToolName === 'get_top_rates')
-  if (/mortgage/i.test(JSON.stringify(rates.parameterSchema))) {
-    report.upstreamSchemaNotes.push('Hosted get_top_rates category description still mentions mortgage. The extension context restricts requests to savings, money-market, cds, and checking; this release does not change the hosted schema.')
-  }
+  assert.equal(/mortgage/i.test(JSON.stringify(tools.map(tool => tool.parameterSchema))), false, 'Hosted input schemas must exclude mortgage')
   for (const category of ['cds', 'money-market', 'checking']) {
     try { report.extraDepositCategories.push({ category, ...await call(rates, { category, limit: 3 }) }) }
     catch (error) { report.failures.push({ category, error: error.message }) }
@@ -111,6 +111,8 @@ try {
   process.exitCode = 1
 } finally {
   await client.disconnect()
+  assert.equal(dirname(resolve(workspace)), resolve(tmpdir()), 'Only remove the generated temporary workspace')
+  assert.ok(basename(workspace).startsWith('switchwize-gemini-probe-'))
   await rm(workspace, { recursive: true, force: true })
   report.passed = report.failures.length === 0
   if (process.argv[2]) await writeFile(resolve(process.argv[2]), JSON.stringify(report, null, 2) + '\n')

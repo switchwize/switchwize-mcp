@@ -6,6 +6,11 @@ indexes; or credit-card offers, rewards, changes, and terms. This extension's
 scope excludes mortgage data. For rate-category arguments, use only `savings`,
 `money-market`, `cds`, or `checking`.
 
+- For named-bank comparisons, call `compare_accounts` with category `savings`,
+  `mma`, `cds`, or `checking`. Report partial coverage rather than filling in
+  a missing bank. For business card fees versus rewards, use `business_card_cost`.
+- `get_rate_freshness` accepts `savings` (alias `hysa`), `money-market`
+  (alias `mma`), `cds`, or `checking`. Unknown categories are errors.
 - Call the relevant tool rather than inventing current figures. Do not call
   every tool for each question. If data is unavailable, say so.
 - Include source URLs, observation dates, and freshness status in answers.

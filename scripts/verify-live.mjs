@@ -25,7 +25,7 @@ try {
   assert.deepEqual(sorted((await bridge.listTools()).tools), sorted(tools.tools))
   assert.deepEqual(sorted((await bridge.listPrompts()).prompts), sorted(prompts.prompts))
   assert.deepEqual(sorted((await bridge.listResources()).resources), sorted(resources.resources))
-  assert.equal(tools.tools.length, 16)
+  assert.equal(tools.tools.length, 18)
   assert.equal(prompts.prompts.length, 3)
   assert.equal(resources.resources.length, 4)
   const result = await bridge.callTool({ name: 'get_bank_gap', arguments: { bank: 'Chase', balance: 25000 } })

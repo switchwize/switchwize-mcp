@@ -1,0 +1,203 @@
+{
+  "checkedAt": "2026-11-07T22:37:12.691Z",
+  "cliVersion": "0.66.0",
+  "extensionVersion": "0.3.0",
+  "endpoint": "https://www.switchwize.com/api/mcp",
+  "validationMethod": "Gemini CLI bundled McpClient and DiscoveredMCPTool.build/execute; no model call",
+  "traffic": "Internal acceptance probes with hypothetical inputs; not consumer adoption",
+  "tools": [
+    {
+      "name": "get_top_rates",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 219,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_top_hysa_rates",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 101,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_bank_gap",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 267,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "compare_switch_savings",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 82,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_rate_freshness",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 215,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_index_dataset",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 93,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_bank_gap_index",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 94,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_reality_score",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 88,
+      "dataStatuses": [
+        "freshnessStatus:stale"
+      ]
+    },
+    {
+      "name": "get_card_offers",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 1035,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_transfer_bonuses",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 110,
+      "dataStatuses": [
+        "freshnessStatus:unavailable"
+      ]
+    },
+    {
+      "name": "get_card_changes",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 110,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_reward_valuations",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 131,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "best_move_this_week",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 790,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "get_cd_rollover_rules",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 116,
+      "dataStatuses": [
+        "freshnessStatus:aging"
+      ]
+    },
+    {
+      "name": "get_card_downgrade_path",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 118,
+      "dataStatuses": [
+        "freshnessStatus:aging"
+      ]
+    },
+    {
+      "name": "get_fed_hike_pass_through",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 316,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "compare_accounts",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 118,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "name": "business_card_cost",
+      "readOnly": true,
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 104,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    }
+  ],
+  "extraDepositCategories": [
+    {
+      "category": "cds",
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 155,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "category": "money-market",
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 138,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    },
+    {
+      "category": "checking",
+      "schemaAndInvocationPass": true,
+      "elapsedMs": 113,
+      "dataStatuses": [
+        "freshnessStatus:fresh"
+      ]
+    }
+  ],
+  "upstreamSchemaNotes": [],
+  "failures": [],
+  "discoveredTools": 18,
+  "invalidInputRejected": true,
+  "passed": true
+}
