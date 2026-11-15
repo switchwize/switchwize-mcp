@@ -21,7 +21,7 @@ gemini extensions install https://github.com/switchwize/switchwize-mcp
 ```
 
 Restart Gemini CLI, then use `/mcp list` to confirm that `switchwize` is connected
-and exposes all 18 tools. The extension uses Gemini CLI's native Streamable HTTP
+and exposes all 24 tools. The extension uses Gemini CLI's native Streamable HTTP
 transport; no separate local MCP process, SwitchWize account, or API key is needed.
 Gemini CLI itself requires its own supported authentication and runtime setup.
 
@@ -85,8 +85,14 @@ bridge. Building this repository does not republish the existing npm version.
 - `get_fed_hike_pass_through`
 - `compare_accounts`
 - `business_card_cost`
+- `search_cards`
+- `get_card_details`
+- `compare_cards`
+- `cards_by_goal`
+- `best_card_for_spend`
+- `issuer_summary`
 
-The hosted server currently discovers 18 tools, three prompts, and four resources.
+The hosted server currently discovers 24 tools, three prompts, and four resources.
 The source-built stdio bridge forwards the hosted tool schemas and annotations,
 prompts, resources, structured results and tool error status.
 
@@ -103,7 +109,7 @@ with the public hosted service and performs a hypothetical Bank Gap call. It
 requires network access and contributes internal acceptance traffic; it does
 not establish independent user adoption or verify every upstream data source.
 
-`npm run verify:gemini -- <report.json>` verifies all 18 tools using Gemini CLI
+`npm run verify:gemini -- <report.json>` verifies all 24 tools using Gemini CLI
 0.66.0's own MCP discovery, input-schema validation, and invocation code. Set
 `GEMINI_CLI_PACKAGE_DIR` to an installed `@google/gemini-cli@0.66.0` package
 directory. Optionally set `SWITCHWIZE_GEMINI_MANIFEST` to the manifest from an
@@ -116,8 +122,23 @@ or unavailable data as current, and checks the other three deposit categories.
 It does not make an LLM request or establish consumer adoption. See the dated
 [Gemini release validation](docs/gemini-release-validation-2026-10-27.md).
 
-The [November 7 validation](docs/catalog-validation-2026-11-07.md) covers the current
-18-tool catalog and supersedes the original release's 16-tool expectation.
+The [November 15 validation](docs/catalog-validation-2026-11-15.md) covers the
+24-tool catalog and supersedes the earlier 18-tool expectation. The original
+release remains a dated 16-tool acceptance receipt.
+
+## Questions to try
+
+- "Compare current U.S. high-yield savings observations. Include sources,
+  observation dates and stale-data warnings."
+- "Compare Ally and Capital One savings observations for a hypothetical
+  $25,000 balance. Explain any missing bank coverage."
+- "Find no-annual-fee cash-back cards, then compare their fees and rewards for
+  hypothetical monthly spending of $300 dining, $500 groceries and $1,000 other."
+
+For cards, start with `search_cards` or `cards_by_goal`, retrieve
+`get_card_details`, then use `compare_cards` or `best_card_for_spend`. Values
+depend on the stated assumptions and evidence coverage; they are not guaranteed
+benefits or personalized financial advice.
 
 ## Data boundaries
 

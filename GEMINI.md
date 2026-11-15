@@ -9,6 +9,11 @@ scope excludes mortgage data. For rate-category arguments, use only `savings`,
 - For named-bank comparisons, call `compare_accounts` with category `savings`,
   `mma`, `cds`, or `checking`. Report partial coverage rather than filling in
   a missing bank. For business card fees versus rewards, use `business_card_cost`.
+- For card discovery, use `search_cards` with fee or issuer filters, or
+  `cards_by_goal` for a stated goal. Retrieve `get_card_details` before comparing
+  named products with `compare_cards`. Use `best_card_for_spend` for a
+  hypothetical monthly spending profile and `issuer_summary` for issuer coverage.
+  Preserve incomplete fee/benefit evidence and modeled-value assumptions.
 - `get_rate_freshness` accepts `savings` (alias `hysa`), `money-market`
   (alias `mma`), `cds`, or `checking`. Unknown categories are errors.
 - Call the relevant tool rather than inventing current figures. Do not call

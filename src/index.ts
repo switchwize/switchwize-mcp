@@ -21,7 +21,10 @@ const DEFAULT_ENDPOINT = "https://www.switchwize.com/api/mcp"
 const endpoint = process.env.SWITCHWIZE_MCP_URL ?? DEFAULT_ENDPOINT
 
 async function connectUpstream() {
-  const client = new Client({ name: "switchwize-mcp-stdio-bridge", version: "0.3.0" })
+  const clientLabel = process.env.SWITCHWIZE_MCP_INTERNAL_TEST === "1"
+    ? "switchwize-internal-probe-source-stdio"
+    : "switchwize-mcp-stdio-bridge"
+  const client = new Client({ name: clientLabel, version: "0.3.0" })
   const transport = new StreamableHTTPClientTransport(new URL(endpoint))
   await client.connect(transport)
   return { client, transport }

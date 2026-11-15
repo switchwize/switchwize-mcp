@@ -11,7 +11,7 @@ const http = new StreamableHTTPClientTransport(new URL(endpoint))
 const stdio = new StdioClientTransport({
   command: process.execPath,
   args: [fileURLToPath(new URL('../dist/index.js', import.meta.url))],
-  env: { SWITCHWIZE_MCP_URL: endpoint },
+  env: { SWITCHWIZE_MCP_URL: endpoint, SWITCHWIZE_MCP_INTERNAL_TEST: '1' },
   stderr: 'pipe',
 })
 const sorted = items => [...items].sort((a, b) => (a.name ?? a.uri).localeCompare(b.name ?? b.uri))
@@ -25,7 +25,7 @@ try {
   assert.deepEqual(sorted((await bridge.listTools()).tools), sorted(tools.tools))
   assert.deepEqual(sorted((await bridge.listPrompts()).prompts), sorted(prompts.prompts))
   assert.deepEqual(sorted((await bridge.listResources()).resources), sorted(resources.resources))
-  assert.equal(tools.tools.length, 18)
+  assert.equal(tools.tools.length, 24)
   assert.equal(prompts.prompts.length, 3)
   assert.equal(resources.resources.length, 4)
   const result = await bridge.callTool({ name: 'get_bank_gap', arguments: { bank: 'Chase', balance: 25000 } })
